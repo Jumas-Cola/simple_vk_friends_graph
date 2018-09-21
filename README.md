@@ -4,25 +4,26 @@ simple_vk_friends_graph ![Python 3.6](https://pp.userapi.com/c846523/v846523407/
 
 ```python
 ...
-# определение перекрёстных связей среди друзей пользователя
-Parser.mutual_friends(user_id)
+	# определение перекрёстных связей с визуализацией популярности
+    maximum = Parser.mutual_friends_with_colors(user_id)
 
-# определение перекрёстных связей с визуализацией популярности
-Parser.mutual_friends_with_colors(user_id)
+    # определение перекрёстных связей среди друзей пользователя
+    #Parser.mutual_friends(user_id)
 
-# рекурсивный проход по друзьям, друзьям друзей и т.д.
-Parser.deep_friends(user_id, depth)
+    # рекурсивный проход по друзьям, друзьям друзей и т.д.
+    # Parser.deep_friends(user_id, depth)
 
-# проход по заданному списку пользователей
-Parser.users_by_list(users)
+    # проход по заданному списку пользователей
+    # Parser.users_by_list(users)
 
-# чтение графа из файла
-G = nx.read_edgelist(path="grid.edgelist", delimiter=":")
+    # чтение графа из файла
+    G = nx.read_edgelist(path="grid.edgelist", delimiter=":")
 
-# отрисовка графа в .png изображение
-Graph = Drawer()
-Graph.graph = G
-Graph.draw()
+    # отрисовка графа в .png изображение
+    Graph = Drawer()
+    Graph.graph = G
+    #Graph.draw()
+    Graph.draw_with_colors(maximum)
 ...
 
 ```
